@@ -16,16 +16,9 @@
     <!-- endbuild -->
 </head>
 <body ng-app="greenLineApp">
-<md-content>
-    <md-toolbar layout="row" layout-sm="column" layout-align="justify center">
 
-    </md-toolbar>
-</md-content>
 <div ng-view="">
-
 </div>
-
-
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <!--
@@ -55,7 +48,8 @@
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
-<script src="scripts/services/cadastroservice.js"></script>
+<script src="scripts/controllers/login.js"></script>
+<script src="scripts/services/authservice.js"></script>
 <!-- endbuild -->
 </body>
 </html>

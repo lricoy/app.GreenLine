@@ -8,9 +8,6 @@
  * Controller of the greenLineApp
  */
 angular.module('greenLineApp')
-    .controller('MainCtrl', function ($scope, cadastroService) {
-        var vm = $scope;
-
-        vm.funcionarios = cadastroService.list('funcionario/')
-
+    .controller('MainCtrl', function ($scope, $http) {
+        // Not implemented.
     });
