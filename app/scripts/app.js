@@ -20,7 +20,17 @@ angular
         'ngMaterial',
         'ngResource'
     ])
-    .config(function ($routeProvider, $resourceProvider) {
+    .run(function ($rootScope, AuthService, $location) {
+        var checkIsLogged = AuthService.isLogged;
+        AuthService.checkStoredAuth();
+
+        $rootScope.$on('routeChangeSuccess', function () {
+            if (!checkIsLogged()){
+                $location.path("/login");
+            }
+        });
+    })
+    .config(function ($routeProvider, $resourceProvider, $mdThemingProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/main.html',
@@ -30,9 +40,21 @@ angular
                 templateUrl: 'views/login.html',
                 controller: 'LoginCtrl'
             })
+            .when('/entries/employee', {
+                templateUrl: 'views/employee.html',
+                controller: 'EntriesCtrl',
+                resolve: {
+                    objects: function (EntrieService) {
+                        return EntrieService.get('funcionario/');
+                    }
+                }
+            })
             .otherwise({
                 redirectTo: '/'
             });
 
         $resourceProvider.defaults.stripTrailingSlashes = false;
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('light-blue')
     });

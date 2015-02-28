@@ -1,0 +1,26 @@
+<div ng-controller="MenuCtrl">
+    <md-button aria-label="Aplicativos" ng-click="showBottomSheet('apps')">
+        <md-tooltip>
+            Aplicações
+        </md-tooltip>
+        <i class="ion-android-apps"></i>
+    </md-button>
+    <md-button aria-label="Cadastros" ng-click="showBottomSheet('entries')">
+        <md-tooltip>
+            Cadastros
+        </md-tooltip>
+        <i class="ion-android-create"></i>
+    </md-button>
+    <md-button aria-label="Notificação" ng-click="showBottomSheet('notification')">
+        <md-tooltip>
+            Notificações
+        </md-tooltip>
+        <i class="ion-android-notifications-none"></i>
+    </md-button>
+    <md-button aria-label="Usuário" ng-click="showBottomSheet('user')">
+        <md-tooltip>
+            {{ user.username }}
+        </md-tooltip>
+        <i class="ion-android-person"></i>
+    </md-button>
+</div>

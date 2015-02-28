@@ -1,5 +1,15 @@
-<form action="http://localhost:8000/auth/api/login/" method="post">
-    <input name="username">
-    <input type="password" name="password">
-    <input type="submit">
-</form>
+<md-toolbar layout="row" layout-sm="column" layout-align="center center">
+    <div layout="row" layout-align="start" layout-margin flex-order-sm="2" flex>
+        <md-button aria-label="Menu">
+            <i class="ion-android-menu"></i>
+        </md-button>
+        <md-button aria-label="Pesquisa">
+            <i class="ion-android-search"></i>
+        </md-button>
+    </div>
+    <div layout="row" layout-align="end" layout-margin flex-order-sm="1" flex>
+        <div ng-include="'views/menu.html'">
+        </div>
+    </div>
+</md-toolbar>
+

@@ -1,6 +1,5 @@
 body {
     padding: 0;
-    background-color: #eee;
 }
 
 .md-whiteframe{
@@ -9,4 +8,11 @@ body {
 
 .login-box{
     padding:20px;
+}
+
+img.face{
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    width: 48px;
+    margin: 16px;
 }

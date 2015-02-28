@@ -8,35 +8,64 @@
  * Factory in the greenLineApp.
  */
 angular.module('greenLineApp')
-    .factory('AuthService', function ($http, $window) {
-        var url_login = domain + 'auth/api/login/',
+    .factory('AuthService', function ($http, $window, $location) {
+        var _urlLogin = domain + 'auth/api/login/',
 
             _user = null,
 
-            isLogged = function(){
+            isLogged = function () {
                 return (_user !== null);
             },
 
-            login = function (data, callback) {
-                console.log(data)
-                $http.post(url_login, data)
+            getUser = function () {
+                return _user;
+            },
+
+            login = function (data, keepConn, callback) {
+                $http.post(_urlLogin, data)
                     .success(function (response) {
-                        _user = response;
+                        _user = response.user;
 
-                        $window.localStorage['apptoken'] = response['token'];
+                        if (keepConn){
+                            $window.localStorage.setItem('token', response.token);
+                        } else {
+                            $window.sessionStorage.setItem('token', response.token);
+                        }
 
-                        $http.defaults.headers.common['x-access-token'] = window.localStorage['apptoken'];
+                        $http.defaults.headers.common['Authorization'] = 'Token ' + response.token;
 
-                        callback(_user, null)
+                        callback(response.user, null)
                     })
                     .error(function (response, status) {
-                        callback({error: status})
-                    });
+                        callback(null, {error:response, status: status});
+                    })
+            },
+
+            logout = function () {
+                _user = null;
+                $window.localStorage.removeItem('token');
+                $window.sessionStorage.removeItem('token');
+                $http.defaults.headers.common['Authorization'] = null;
+                $location.path("/login")
+
+            },
+
+            checkStoredAuth = function () {
+                var token = $window.sessionStorage.getItem('token') || $window.localStorage.getItem('token');
+                if (token !== null){
+                    $http.defaults.headers.common['Authorization'] = 'Token ' + token;
+                    $http.get(_urlLogin + 'get_user/')
+                        .success(function (data) {
+                            _user = data;
+                        });
+                }
             };
 
         return {
             login: login,
             isLogged: isLogged,
-            user: _user
+            getUser: getUser,
+            checkStoredAuth: checkStoredAuth,
+            logout: logout
         }
     });

@@ -8,6 +8,8 @@
  * Controller of the greenLineApp
  */
 angular.module('greenLineApp')
-    .controller('MainCtrl', function ($scope, $http) {
-        // Not implemented.
+    .controller('MainCtrl', function ($scope) {
+        var vm = $scope;
+
+
     });
