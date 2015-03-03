@@ -9,6 +9,23 @@
  */
 angular.module('greenLineApp')
     .factory('AuthService', function ($http, $window, $location) {
+        var User = function (object){
+            var username = object.username,
+                permissions = object.permissions,
+                profile = object.profile,
+
+                has_perm = function (perm){
+                    var check_perm = permissions.indexOf(perm);
+                    return check_perm > 0;
+                };
+
+            return {
+                username: username,
+                profile: profile,
+                has_perm: has_perm
+            }
+        };
+
         var _urlLogin = domain + 'auth/api/login/',
 
             _user = null,
@@ -24,7 +41,7 @@ angular.module('greenLineApp')
             login = function (data, keepConn, callback) {
                 $http.post(_urlLogin, data)
                     .success(function (response) {
-                        _user = response.user;
+                        _user = new User(response.user);
 
                         if (keepConn){
                             $window.localStorage.setItem('token', response.token);
@@ -56,7 +73,7 @@ angular.module('greenLineApp')
                     $http.defaults.headers.common['Authorization'] = 'Token ' + token;
                     $http.get(_urlLogin + 'get_user/')
                         .success(function (data) {
-                            _user = data;
+                            _user = new User(data);
                         });
                 }
             };

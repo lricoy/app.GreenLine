@@ -13,10 +13,10 @@ angular.module('greenLineApp')
             objects = [],
 
             post = function (name, data, callback) {
-                $resource(url + name).save(data).$promise.then(function success(data, status){
-                    callback(data, status);
-                }, function error(data, status){
-                    callback(data, status);
+                $resource(url + name).save(data).$promise.then(function success(response){
+                    callback(response.data, null);
+                }, function error(response){
+                    callback(null, response.data);
                 })
             },
 

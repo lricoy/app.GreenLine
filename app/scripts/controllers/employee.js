@@ -55,8 +55,13 @@ angular.module('greenLineApp')
         };
 
         vm.postNewObject = function (){
-            EntrieService.post('funcionario/', vm.newObject, function (data, status){
-               console.log(data)
+            EntrieService.post('funcionario/', vm.newObject, function (data, error){
+                console.log(vm.newObject)
+                if (error){
+                    console.log(error);
+                } else {
+                    vm.objects.push(data);
+                }
             });
         }
     });
