@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: UserbottomsheetCtrl', function () {
+describe('Controller: EmployeeCtrl', function () {
 
   // load the controller's module
   beforeEach(module('greenLineApp'));
 
-  var UserbottomsheetCtrl,
+  var EmployeeCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    UserbottomsheetCtrl = $controller('UserbottomsheetCtrl', {
+    EmployeeCtrl = $controller('EmployeeCtrl', {
       $scope: scope
     });
   }));

@@ -1,15 +1,36 @@
-<md-toolbar layout="row" layout-sm="column" layout-align="center center">
-    <div layout="row" layout-align="start" layout-margin flex-order-sm="2" flex>
-        <md-button aria-label="Menu">
-            <i class="ion-android-menu"></i>
-        </md-button>
-        <md-button aria-label="Pesquisa">
-            <i class="ion-android-search"></i>
-        </md-button>
-    </div>
-    <div layout="row" layout-align="end" layout-margin flex-order-sm="1" flex>
-        <div ng-include="'views/menu.html'">
+<md-toolbar class="md-lg-tall" layout="column" layout-align="start center" style="box-shadow: none;">
+    <div layout="row" layout-fill flex="33">
+        <div layout="row" layout-align="start start" layout-margin>
+            <md-button aria-label="Menu" ng-disabled="true">
+                <i class="ion-android-menu"></i>
+            </md-button>
+            <md-button aria-label="Pesquisa">
+                <i class="ion-android-search"></i>
+            </md-button>
         </div>
-    </div>
+        <div layout="row" layout-align="end start" layout-margin flex>
+            <!-- Include a fixed menu for app -->
+            <div ng-include="'views/menu.html'"></div>
+        </div>
+    </div> <!-- END First row of column -->
+    <div layout="row" layout-align="center end" layout-fill flex>
+        <div layout="column" layout-align="start end" flex-gt-sm="75" flex>
+            <div class="md-toolbar-title">
+                Home
+            </div>
+            <div class="md-toolbar-subtitle">
+                <img ng-src="http://wiki.ap3x.org/bin/skin/resources/icons/xwiki/noavatar.png" class="face" alt="" />
+                <span class="text">{{ user.funcionario.nome }}</span>
+            </div>
+        </div>
+    </div> <!-- END Second row of column -->
 </md-toolbar>
+<div class="md-whiteframe-z1" layout="row" layout-align="center end" style="background-color: #ffffff; height: 64px;">
+    <md-tabs class="md-tab-header" flex-gt-sm="75">
+        <md-tab label="Home" md-active="true">
+        </md-tab>
+        <md-tab label="Profile">
+        </md-tab>
+    </md-tabs>
+</div>
 

@@ -10,6 +10,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.css" />
+    <link rel="stylesheet" href="bower_components/nz-animate/dist/nzAnimate.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -17,10 +18,10 @@
     <link rel="stylesheet" href="icons/styles.css" />
     <!-- endbuild -->
 </head>
-<body ng-app="greenLineApp">
+<body ng-app="greenLineApp" layout="column">
 
-<div ng-view="" layout="column" layout-fill style="background-color: #eee;">
-</div>
+<ui-view layout="column" style="width: 100%;" layout-fill class="bounceInRight enter-bounceInRight exit-bounceOutRight speed-700 stagger-100">
+</ui-view>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <!--
@@ -41,9 +42,9 @@
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
 <script src="bower_components/angular-messages/angular-messages.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -53,9 +54,9 @@
 <script src="scripts/controllers/login.js"></script>
 <script src="scripts/services/authservice.js"></script>
 <script src="scripts/controllers/menu.js"></script>
-<script src="scripts/controllers/entries.js"></script>
 <script src="scripts/controllers/bottomsheet.js"></script>
 <script src="scripts/services/entrieservice.js"></script>
+<script src="scripts/controllers/employee.js"></script>
 <!-- endbuild -->
 </body>
 </html>

@@ -1,0 +1,134 @@
+<md-toolbar class="md-lg-tall" style="box-shadow: none;">
+    <div layout="row" layout-align="center end" layout-fill flex>
+        <div layout="column" layout-align="start end" flex-gt-sm="75" flex="95">
+            <div class="md-toolbar-title">
+                Funcionários
+            </div>
+            <div class="md-toolbar-subtitle">
+                <i class="ion-android-person"></i> Lista
+            </div>
+        </div>
+    </div> <!-- END First row of column -->
+</md-toolbar>
+<md-toolbar layout="row" layout-align="center end"
+            style="background-color: #ffffff; height: 64px; z-index: 1;">
+    <md-tabs class="md-tab-header" flex-gt-sm="75">
+        <md-tab label="Funcionários"></md-tab>
+        <md-tab label="..." ng-disabled="true"></md-tab>
+    </md-tabs>
+</md-toolbar> <!-- END Content of tab -->
+
+<!-- DISPLAY NONE on devices less than 600px wide. -->
+<md-content layout="row" layout-fill layout-align="center start" style="background-color: #eeeeee; margin-top: 30px; padding-bottom: 70px;"  hide-sm>
+    <div layout="row" flex="75">
+        <div layout="column" flex="60">
+            <md-list class="md-whiteframe-z1" style="background-color: #ffffff; border-radius: 3px;">
+                <md-item ng-repeat="object in objects|filter:selectedItem">
+                    <md-item-content>
+                        <div class="md-tile-left">
+                            <img ng-src="http://wiki.ap3x.org/bin/skin/resources/icons/xwiki/noavatar.png" class="face" alt=""/>
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{ object.nome }}</h3>
+                            <h4>{{ object.cpf }}</h4>
+                            <p>
+                                {{ object.email }} &nbsp;
+                            </p>
+                        </div>
+                        <div layout="column" class="md-tile-right" layout-margin>
+                            <md-button aria-label="Expandir" ng-click="expand=!expand">
+                                <i class="ion-arrow-expand"></i>
+                            </md-button>
+                            <md-button>
+                                <i class="ion-edit" aria-label="Editar"></i>
+                            </md-button>
+                            <md-button>
+                                <i class="ion-android-delete" aria-label="Excluir"></i>
+                            </md-button>
+                        </div>
+                    </md-item-content>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-item>
+            </md-list>
+        </div>
+        <div layout="column" layout-align="start center" flex>
+            <md-list class="list-description">
+                <md-item>
+                    <md-item-content>
+                        <div class="md-tile-left">
+                            <i class="ion-android-list"></i>
+                        </div>
+                        <div class="md-tile-content">
+                            {{ objects.length }} funcionário(s) cadastrado(s).
+                        </div>
+                    </md-item-content>
+                </md-item>
+                <md-item>
+                    <md-item-content>
+                        <div class="md-tile-left">
+                            <i class="ion-female"></i>
+                        </div>
+                        <div class="md-tile-content">
+                            {{ lengthOfObjects({sexo:'f'}) }} mulheres.
+                        </div>
+                    </md-item-content>
+                </md-item>
+                <md-item>
+                    <md-item-content>
+                        <div class="md-tile-left">
+                            <i class="ion-male"></i>
+                        </div>
+                        <div class="md-tile-content">
+                            {{ lengthOfObjects({sexo:'m'}) }} homens.
+                        </div>
+                    </md-item-content>
+                </md-item>
+                <md-divider></md-divider>
+            </md-list>
+        </div>
+    </div>
+</md-content>
+<md-button class="md-fab md-fab-top-right" style="top:164px;"
+           aria-label="Novo" hide-sm ui-sref="employee.new">
+    <i class="ion-plus"></i>
+</md-button>
+<!-- END -->
+
+<!-- DISPLAY NONE on devices greater than 600px wide. -->
+<md-content layout="row" layout-fill layout-align="center start" style="background-color: #eeeeee;"  hide-gt-sm>
+    <div layout="column" flex>
+        <div layout="column">
+            <md-list class="md-whiteframe-z1" style="background-color: #ffffff; border-radius: 3px; padding-bottom: 100px;">
+                <md-item ng-repeat="object in objects|filter:selectedItem">
+                    <md-item-content>
+                        <div class="md-tile-left">
+                            <img ng-src="http://wiki.ap3x.org/bin/skin/resources/icons/xwiki/noavatar.png" class="face" alt=""/>
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{ object.nome }}</h3>
+                            <h4>{{ object.cpf }}</h4>
+                        </div>
+                        <div layout="column" class="md-tile-right" layout-margin>
+                            <md-button aria-label="Expandir" ng-click="expand=!expand">
+                                <i class="ion-arrow-expand"></i>
+                            </md-button>
+                            <md-button>
+                                <i class="ion-edit" aria-label="Editar"></i>
+                            </md-button>
+                            <md-button>
+                                <i class="ion-android-delete" aria-label="Excluir"></i>
+                            </md-button>
+                        </div>
+                    </md-item-content>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-item>
+            </md-list>
+        </div>
+    </div>
+</md-content>
+<md-button class="md-fab md-fab-bottom-right" style="position:fixed;"
+           aria-label="Novo" hide-gt-sm ui-sref="employee.new">
+    <i class="ion-plus"></i>
+</md-button>
+<!-- END -->
+

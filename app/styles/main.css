@@ -1,13 +1,6 @@
 body {
     padding: 0;
-}
-
-.md-whiteframe{
-    background-color: #fff;
-}
-
-.login-box{
-    padding:20px;
+    background-color: #eee;
 }
 
 img.face{
@@ -16,3 +9,63 @@ img.face{
     width: 48px;
     margin: 16px;
 }
+
+.md-lg-tall{
+    height: 128px;
+    min-height: 128px;
+    max-height: 128px;
+}
+
+.md-toolbar-title{
+    width: 100%;
+    font-weight: normal;
+    padding: 8px 0px;
+    margin: 0;
+    font-size: 33px;
+    color: #B4DCFF;
+}
+
+.md-toolbar-subtitle{
+    width: 100%;
+    height: 50px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 0 20px 0px;
+    font-size: 14px;
+    color: #3b77a2;
+    vertical-align: bottom;
+}
+
+.md-toolbar-subtitle img.face{
+    margin:0;
+    width: 24px;
+    float:left;
+}
+
+.md-tab-header{
+    height: 100%;
+}
+
+.md-tab-header .md-header{
+    height: 100%;
+    overflow: hidden;
+}
+
+span.content-title{
+    font-weight: bolder;
+    font-size: 12px;
+    color:#808080;
+    padding: 20px;
+}
+
+.list-description{
+    color: #808080;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 0 0 0 45px;
+}
+
+.list-description i{
+    font-size: 16px;
+}
+

@@ -1,6 +1,6 @@
-<md-toolbar class="md-tall" layout="column" layout-align="start center" flex>
-    <div layout="row" flex layout-fill>
-        <div layout="row" layout-align="start start" layout-margin flex="40">
+<md-toolbar layout="column" layout-align="start center" style="box-shadow: none;">
+    <div layout="row" layout-fill flex="33">
+        <div layout="row" layout-align="start start" layout-margin>
             <md-button aria-label="Menu" ng-disabled="true">
                 <i class="ion-android-menu"></i>
             </md-button>
@@ -8,63 +8,12 @@
                 <i class="ion-android-search"></i>
             </md-button>
         </div>
-        <md-divider></md-divider>
         <div layout="row" layout-align="end start" layout-margin flex>
-            <div ng-include="'views/menu.html'">
-            </div>
+            <!-- Include a fixed menu for app -->
+            <div ng-include="'views/menu.html'"></div>
         </div>
-    </div>
-    <div layout="row" flex layout-align="center center" layout-fill>
-        <div layout="row" layout-align="start end" flex="85">
-            <div class="md-toolbar-tools">
-                <h1>
-                    Funcionários
-                </h1>
-            </div>
-        </div>
-    </div>
+    </div> <!-- END First row of column -->
 </md-toolbar>
-<md-toolbar class="md-hue-1">
-</md-toolbar>
-<div layout="column" flex layout-align="start">
-    <md-content layout="row" layout-align="center start" layout-fill flex>
-        <md-list flex flex-gt-sm="85" ng-if="!new">
-            <md-item ng-repeat="object in objects">
-                <md-item-content>
-                    <div class="md-tile-left">
-                        <img ng-src="http://wiki.ap3x.org/bin/skin/resources/icons/xwiki/noavatar.png" class="face" alt=""/>
-                    </div>
-                    <div class="md-tile-content">
-                        <h3>{{ object.nome }}</h3>
-                        <h4>{{ object.email }}</h4>
-                        <p>
-                            {{ object.cpf }} &nbsp;
-                        </p>
-                    </div>
-                    <div class="md-tile-right">
-                        <md-button aria-label="Expandir" ng-click="expand=!expand">
-                            <i class="ion-arrow-expand"></i>
-                        </md-button>
-                        <md-button>
-                            <i class="ion-edit" aria-label="Editar"></i>
-                        </md-button>
-                        <md-button>
-                            <i class="ion-android-delete" aria-label="Excluir"></i>
-                        </md-button>
-                    </div>
-                </md-item-content>
-                <md-divider ng-if="!$last"></md-divider>
-            </md-item>
-        </md-list>
-        <div ng-if="new" ng-include="'views/employee_form.html'" flex="85"></div>
-    </md-content>
-</div>
-<md-button class="md-fab md-fab-top-right" style="top:100px;" ng-click="new=!new">
-    <md-tooltip ng-if="!new">
-        Novo
-    </md-tooltip>
-    <md-tooltip ng-if="new">
-        Funcionários
-    </md-tooltip>
-    <i ng-class="{'ion-android-arrow-back': new, 'ion-plus': !new}" style="font-size: 24px;"></i>
-</md-button>
+<!-- View -->
+<ui-view class="bounceInLeft enter-bounceInLeft exit-bounceOutRight speed-700 stagger-100 ">
+</ui-view>

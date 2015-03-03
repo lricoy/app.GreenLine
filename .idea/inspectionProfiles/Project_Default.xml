@@ -12,6 +12,21 @@
     </inspection_tool>
     <inspection_tool class="FunctionWithMultipleLoopsJS" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="FunctionWithMultipleReturnPointsJS" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="6">
+            <item index="0" class="java.lang.String" itemvalue="flex" />
+            <item index="1" class="java.lang.String" itemvalue="layout-fill" />
+            <item index="2" class="java.lang.String" itemvalue="layout" />
+            <item index="3" class="java.lang.String" itemvalue="layout-align" />
+            <item index="4" class="java.lang.String" itemvalue="layout-margin" />
+            <item index="5" class="java.lang.String" itemvalue="flex-gt-sm" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
     <inspection_tool class="LocalVariableNamingConventionJS" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_regex" value="[a-z][A-Za-z]*" />
       <option name="m_minLength" value="1" />

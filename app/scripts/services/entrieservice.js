@@ -12,12 +12,21 @@ angular.module('greenLineApp')
         var url = domain + 'cadastro/api/',
             objects = [],
 
+            post = function (name, data, callback) {
+                $resource(url + name).save(data).$promise.then(function success(data, status){
+                    callback(data, status);
+                }, function error(data, status){
+                    callback(data, status);
+                })
+            },
+
             get = function (name) {
                 objects = $resource(url + name).query();
                 return objects;
             };
 
         return {
-            get: get
+            get: get,
+            post: post
         }
     });

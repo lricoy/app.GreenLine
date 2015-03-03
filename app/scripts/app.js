@@ -16,45 +16,50 @@ angular
         'ngAnimate',
         'ngAria',
         'ngMessages',
-        'ngRoute',
         'ngMaterial',
-        'ngResource'
+        'ngResource',
+        'ui.router'
     ])
-    .run(function ($rootScope, AuthService, $location) {
-        var checkIsLogged = AuthService.isLogged;
-        AuthService.checkStoredAuth();
+    .config(function ($stateProvider,
+                      $urlRouterProvider,
+                      $resourceProvider,
+                      $mdThemingProvider) {
 
-        $rootScope.$on('routeChangeSuccess', function () {
-            if (!checkIsLogged()){
-                $location.path("/login");
-            }
-        });
-    })
-    .config(function ($routeProvider, $resourceProvider, $mdThemingProvider) {
-        $routeProvider
-            .when('/', {
-                templateUrl: 'views/main.html',
-                controller: 'MainCtrl'
-            })
-            .when('/login',{
+        $urlRouterProvider.otherwise('/');
+
+        $stateProvider
+            .state('login', {
+                url: '/login',
                 templateUrl: 'views/login.html',
                 controller: 'LoginCtrl'
             })
-            .when('/entries/employee', {
-                templateUrl: 'views/employee.html',
-                controller: 'EntriesCtrl',
-                resolve: {
-                    objects: function (EntrieService) {
-                        return EntrieService.get('funcionario/');
-                    }
-                }
+            .state('main', {
+                url: '/',
+                templateUrl: 'views/main.html',
+                controller: 'MainCtrl'
             })
-            .otherwise({
-                redirectTo: '/'
+            .state('employee', {
+                url: '/employee',
+                templateUrl: 'views/employee.html',
+                controller: 'EmployeeCtrl'
+            })
+            .state('employee.list', {
+                url: '/',
+                templateUrl: 'views/employee/list.html'
+            })
+            .state('employee.new', {
+                url: '/new',
+                templateUrl: 'views/employee/form.html'
             });
 
         $resourceProvider.defaults.stripTrailingSlashes = false;
 
+
         $mdThemingProvider.theme('default')
-            .primaryPalette('light-blue')
+            .primaryPalette('light-blue');
+    })
+    .run(function ($rootScope, $timeout, AuthService) {
+        console.log("Runing app...");
+        AuthService.checkStoredAuth();
+
     });

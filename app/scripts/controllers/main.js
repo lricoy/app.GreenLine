@@ -11,5 +11,4 @@ angular.module('greenLineApp')
     .controller('MainCtrl', function ($scope) {
         var vm = $scope;
 
-
     });

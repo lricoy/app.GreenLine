@@ -1,0 +1,200 @@
+<md-toolbar class="md-lg-tall" style="box-shadow: none;">
+    <div layout="row" layout-align="center end" layout-fill flex>
+        <div layout="column" layout-align="start end" flex-gt-sm="75" flex="95">
+            <div class="md-toolbar-title">
+                Funcionários
+            </div>
+            <div class="md-toolbar-subtitle">
+                <i class="ion-android-person"></i> Cadastro
+            </div>
+        </div>
+    </div> <!-- END First row of column -->
+</md-toolbar>
+<md-toolbar layout="row" layout-align="center end"
+            style="background-color: #ffffff; height: 64px; z-index: 1;">
+    <md-tabs class="md-tab-header" flex-gt-sm="75">
+        <md-tab label="Formulário"></md-tab>
+        <md-tab label="..." ng-disabled="true"></md-tab>
+    </md-tabs>
+</md-toolbar> <!-- END Content of tab -->
+
+<!-- DISPLAY NONE on devices less than 600px wide. -->
+<md-content layout="row" layout-fill layout-align="center start" style="background-color: #eeeeee; margin-top: 30px; padding-bottom: 70px;"  hide-sm>
+    <div layout="row" flex="75">
+        <form class="md-whiteframe-z1 md-padding" style="background-color: #ffffff; border-radius: 3px; padding:30px;"
+              flex="60" layout-padding ng-submit="postNewObject()">
+            <h1><i class="ion-android-person"></i></h1>
+            <md-input-container>
+                <label>Nome completo</label>
+                <input type="text" ng-model="newObject.nome" required/>
+            </md-input-container>
+            <md-radio-group ng-model="newObject.sexo" required>
+                <md-radio-button value="f" ng-selected>Feminino</md-radio-button>
+                <md-radio-button value="m">Masculino</md-radio-button>
+            </md-radio-group>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Cpf</label>
+                    <input type="text" ng-model="newObject.cpf" required/>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Rg</label>
+                    <input type="text" ng-model="newObject.rg" />
+                </md-input-container>
+            </div>
+            <md-input-container>
+                <label>Data de nascimento</label>
+                <input type="text" ng-model="newObject.data_nascimento" />
+            </md-input-container>
+            <h1><i class="ion-android-mail"></i></h1>
+            <md-input-container>
+                <label>Email</label>
+                <input type="text" ng-model="newObject.email" />
+            </md-input-container>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Telefone</label>
+                    <input type="text" ng-model="newObject.tel" />
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Celular</label>
+                    <input type="text" ng-model="newObject.cel" />
+                </md-input-container>
+            </div>
+            <h1><i class="ion-ios-location"></i></h1>
+            <div layout="row">
+                <md-input-container flex="50">
+                    <label>Logradouro</label>
+                    <input type="text" ng-model="newObject.logradouro" />
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Número</label>
+                    <input type="text" ng-model="newObject.numero" />
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Complemento</label>
+                    <input type="text" ng-model="newObject.complemento" />
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Bairro</label>
+                    <input type="text" ng-model="newObject.bairro" />
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Cep</label>
+                    <input type="text" ng-model="newObject.cep" />
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Município</label>
+                    <input type="text" ng-model="newObject.municipio" />
+                </md-input-container>
+                <md-input-container flex>
+                    <label>UF</label>
+                    <input type="text" ng-model="newObject.uf" />
+                </md-input-container>
+            </div>
+            <h1><i class="ion-clipboard"></i></h1>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Setor</label>
+                    <input type="text" ng-model="newObject.setor" />
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Cargo</label>
+                    <input type="text" ng-model="newObject.cargo" />
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Data de admissão</label>
+                    <input type="text" ng-model="newObject.data_admissao" />
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Data de registro</label>
+                    <input type="text" ng-model="newObject.data_registro" />
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Ctps</label>
+                    <input type="text" ng-model="newObject.ctps" />
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Pis/Pasep</label>
+                    <input type="text" ng-model="newObject.pis_pasep" />
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Salário</label>
+                    <input type="text" ng-model="newObject.salario" />
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Vale transporte diário</label>
+                    <input type="text" ng-model="newObject.transporte" />
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>Vale refeição diário</label>
+                    <input type="text" ng-model="newObject.refeicao" />
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Carga horária semanal</label>
+                    <input type="text" ng-model="newObject.carga_horaria_semanal" />
+                </md-input-container>
+            </div>
+            <br />
+            <div layout="row" layout-align="end" flex>
+                <md-button class="md-primary">Confirmar</md-button>
+            </div>
+        </form>
+    </div>
+</md-content>
+<md-button class="md-fab md-fab-top-right" style="top:164px;"
+           aria-label="Novo" hide-sm ui-sref="employee.list">
+    <i class="ion-android-arrow-back"></i>
+</md-button>
+<!-- END -->
+
+<!-- DISPLAY NONE on devices greater than 600px wide. -->
+<md-content layout="row" layout-fill layout-align="center start" style="background-color: #eeeeee;"  hide-gt-sm>
+    <div layout="column" flex>
+        <div layout="column">
+            <md-list class="md-whiteframe-z1" style="background-color: #ffffff; border-radius: 3px; padding-bottom: 100px;">
+                <md-item ng-repeat="object in objects|filter:selectedItem">
+                    <md-item-content>
+                        <div class="md-tile-left">
+                            <img ng-src="http://wiki.ap3x.org/bin/skin/resources/icons/xwiki/noavatar.png" class="face" alt=""/>
+                        </div>
+                        <div class="md-tile-content">
+                            <h3>{{ object.nome }}</h3>
+                            <h4>{{ object.cpf }}</h4>
+                        </div>
+                        <div layout="column" class="md-tile-right" layout-margin>
+                            <md-button aria-label="Expandir" ng-click="expand=!expand">
+                                <i class="ion-arrow-expand"></i>
+                            </md-button>
+                            <md-button>
+                                <i class="ion-edit" aria-label="Editar"></i>
+                            </md-button>
+                            <md-button>
+                                <i class="ion-android-delete" aria-label="Excluir"></i>
+                            </md-button>
+                        </div>
+                    </md-item-content>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-item>
+            </md-list>
+        </div>
+    </div>
+</md-content>
+<md-button class="md-fab md-fab-bottom-right" style="position:fixed;"
+           aria-label="Novo" hide-gt-sm>
+    <i class="ion-plus"></i>
+</md-button>
+<!-- END -->
+

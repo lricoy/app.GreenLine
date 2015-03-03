@@ -1,12 +1,6 @@
-<div layout="column" layout-sm="column" layout-align="center center" layout-fill layout-margin layout-padding>
-    <h2>
-        Bem-vindo!
-    </h2>
-    <p>
-        Digite seu usuário e sua senha no formulário abaixo para fazer login.
-    </p>
-    <div class="md-whiteframe md-whiteframe-z1 login-box">
-        <form name="loginForm"  ng-submit="login()">
+<div layout="column" layout-sm="column" layout-align="center center" layout-fill>
+    <md-content class="md-whiteframe-z1" layout-padding layout-margin layout-fill-sm>
+        <form name="loginForm"  ng-submit="login()" layout-margin>
             <md-input-container>
                 <label>Usuário</label>
                 <input name="username" required ng-model="user.username" />
@@ -28,5 +22,5 @@
                 <md-progress-circular md-mode="indeterminate"></md-progress-circular>
             </div>
         </form>
-    </div>
+    </md-content>
 </div>
